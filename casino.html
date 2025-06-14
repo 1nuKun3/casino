@@ -8,40 +8,39 @@
 <body>
     <!-- バナー -->
     <header class="banner">
-        <div class="logo">
+        <div class="logo" style="cursor:pointer;" onclick="window.location.href='casino.html'">
             <img src="logo.png" alt="Casino Logo">
         </div>
-        <div class="balance">残高: $1,250.50</div>
-        <div class="user-info">ようこそ, Maikura</div>
+        <div class="balance">残高: </div>
+        <div class="user-info">ようこそ</div>
     </header>
 
     <!-- ゲーム選択画面 -->
     <div class="game-container">
         <h1>ゲームを選択</h1>
         <div class="games">
-            <div class="game-card">
-                <img src="baccarat.png" alt="Baccarat">
-                <p>バカラ</p>
-            </div>
-            <div class="game-card">
+            <div class="game-card" onclick="window.location.href='highlow.html'" style="cursor:pointer;">
                 <img src="highlow.png" alt="HighLow">
                 <p>ハイロー</p>
             </div>
-            <div class="game-card">
+            <div class="game-card" onclick="window.location.href='baccarat.html'" style="cursor:pointer;">
+                <img src="baccarat.png" alt="Baccarat">
+                <p>バカラ</p>
+            </div>
+            <div class="game-card" onclick="window.location.href='mines.html'" style="cursor:pointer;">
                 <img src="mines.png" alt="Mines">
                 <p>マインズ</p>
             </div>
-            <div class="game-card">
+            <div class="game-card" onclick="window.location.href='dragontiger.html'" style="cursor:pointer;">
                 <img src="dragontiger.png" alt="Dragon Tiger">
                 <p>ドラゴンタイガー</p>
             </div>
-            <div class="game-card">
+            <div class="game-card" onclick="window.location.href='blackjack.html'" style="cursor:pointer;">
                 <img src="blackjack.png" alt="Blackjack">
                 <p>ブラックジャック</p>
             </div>
         </div>
     </div>
-<!-- ...existing code... -->
 
     <script src="casinoscript.js"></script>
 </body>
