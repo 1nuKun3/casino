@@ -1,33 +1,31 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casino Login</title>
-    <link rel="stylesheet" href="loginstyles.css">
-</head>
-<body>
-    <!-- 縦長バナー -->
-    <header class="banner">
-        <div class="logo">
-            <img src="logo.png" alt="Casino Logo">
-        </div>
-    </header>
+document.getElementById('loginForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
 
-    <div class="login-container">
-        <h1>ログイン</h1>
-        <form id="loginForm">
-            <label for="username">メールアドレスまたはユーザー名</label>
-            <input type="text" id="username" placeholder="メールアドレスまたはユーザー名" required>
-            
-            <label for="password">パスワード</label>
-            <input type="password" id="password" placeholder="パスワード" required>
+    const usernameOrEmail = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-            <button type="submit">ログイン</button>
-            <p>アカウントをお持ちでない場合 <a href="signup.html">新規作成</a></p>
-        </form>
-    </div>
+    // GASのWebアプリURLに書き換えてください
+    const GAS_URL = 'https://script.google.com/macros/s/AKfycby0zpQHuAiKb8Gjzf-j-qPbQOaXVgFP9vkCQnmIUefBJGczJtwKUjn_TZhrqZGwmObybg/exec';
 
-    <script src="loginscript.js"></script>
-</body>
-</html>
+    // クエリパラメータを作成
+    const params = new URLSearchParams({
+        email: usernameOrEmail,
+        password: password
+    });
+
+    try {
+        const response = await fetch(`${GAS_URL}?${params.toString()}`);
+        const data = await response.json();
+
+        if (data.result === 'success') {
+            // ログイン成功時、ユーザー名・メールアドレスをlocalStorageに保存
+            localStorage.setItem('casino_username', data.username);
+            localStorage.setItem('casino_email', usernameOrEmail);
+            window.location.href = 'casino.html';
+        } else {
+            alert('ログイン失敗：' + (data.message || 'ユーザー名またはパスワードが違います。'));
+        }
+    } catch (e) {
+        alert('通信エラーが発生しました。');
+    }
+});
