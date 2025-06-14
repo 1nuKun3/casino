@@ -5,7 +5,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     const password = document.getElementById('password').value;
 
     // GASのWebアプリURLに書き換えてください
-    const GAS_URL = 'https://script.google.com/macros/s/AKfycbzUD96GRynJqkYmwoW1XQfDHtq5RgWQgzTuUkN9FJB833_l7Yf6qX3bsBqSgtx_GTisYw/exec';
+    const GAS_URL = 'https://script.google.com/macros/s/AKfycbxjFVMVn9utG4oDLEUKQsQkx-zU-dNwq9HZfDHO5V9SASzlk-xlzc__cMf4jB1ERFLing/exec';
 
     // クエリパラメータを作成
     const params = new URLSearchParams({
