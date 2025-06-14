@@ -5,14 +5,22 @@ document.getElementById('signupForm').addEventListener('submit', async function(
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    // GASのWebアプリURLに書き換えてください
-    const GAS_URL = 'https://script.google.com/macros/s/AKfycbzUD96GRynJqkYmwoW1XQfDHtq5RgWQgzTuUkN9FJB833_l7Yf6qX3bsBqSgtx_GTisYw/exec';
+    const GAS_URL = 'https://script.google.com/macros/s/AKfycby0zpQHuAiKb8Gjzf-j-qPbQOaXVgFP9vkCQnmIUefBJGczJtwKUjn_TZhrqZGwmObybg/exec';
+
+    // ここを変える！！
+    const params = new URLSearchParams({
+        username: username,
+        email: email,
+        password: password
+    });
 
     try {
         const response = await fetch(GAS_URL, {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({username, email, password})
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: params.toString()
         });
         const data = await response.json();
 
