@@ -5,7 +5,7 @@ document.getElementById('signupForm').addEventListener('submit', async function(
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    const GAS_URL = 'https://script.google.com/macros/s/AKfycby0zpQHuAiKb8Gjzf-j-qPbQOaXVgFP9vkCQnmIUefBJGczJtwKUjn_TZhrqZGwmObybg/exec';
+    const GAS_URL = 'https://script.google.com/macros/s/AKfycbxjFVMVn9utG4oDLEUKQsQkx-zU-dNwq9HZfDHO5V9SASzlk-xlzc__cMf4jB1ERFLing/exec';
 
     // ここを変える！！
     const params = new URLSearchParams({
